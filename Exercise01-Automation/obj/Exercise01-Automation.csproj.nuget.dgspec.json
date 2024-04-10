@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj": {}
+    "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj": {
+    "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj",
+        "projectUniqueName": "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj",
         "projectName": "Exercise01-Automation",
-        "projectPath": "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj",
+        "projectPath": "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation.csproj",
         "packagesPath": "C:\\Users\\jhanina.romero\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\Exercise01-Automation\\obj\\",
+        "outputPath": "C:\\Users\\jhanina.romero\\Documents\\courses\\Web_UI_Automation_Training_Program_101\\code\\Csharp\\Exercise01-Automation\\Exercise01-Automation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,10 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace Exercise01_Automation
 {
@@ -17,14 +14,22 @@ namespace Exercise01_Automation
         private By lastnameInput = By.Name("lastname");
         private By mobileOrEmailInput = By.Name("reg_email__");
         private By passwordInput = By.Name("reg_passwd__");
+        private By termsLink = By.Id("terms-link");
+        private By termsServicetitle = By.CssSelector("h2:nth-child(2)");
+        private IList<By> menuItems = new List<By>();
+        private IList<By> privacyItems = new List<By>();
+        private Actions actions;
 
         [SetUp]
         public void SetUp()
         {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.AddUserProfilePreference("intl.accept_languages", "en");
+            driver = new ChromeDriver(options);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://www.facebook.com/");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            actions = new Actions();
         }
 
         [Test]
@@ -40,6 +45,60 @@ namespace Exercise01_Automation
             actions.SendText(driver.FindElement(lastnameInput), "Doe");
             actions.SendText(driver.FindElement(mobileOrEmailInput), "Jhon");
             actions.SendText(driver.FindElement(passwordInput), "Password123");
+        }
+
+        [Test]
+        public void VerifyTermsTitle()
+        {
+            actions.Click(driver.FindElement(createNewAccount));
+            actions.Click(driver.FindElement(termsLink));
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementIsVisible(termsServicetitle));
+            Assert.IsTrue(driver.FindElement(termsServicetitle).Displayed);
+        }
+
+        [Test]
+        public void VerifyTermsServicesMenuItems()
+        {
+            actions.Click(driver.FindElement(createNewAccount));
+            actions.Click(driver.FindElement(termsLink));
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            menuItems.Add(By.XPath("//div[@class=' _1-qq']//div[@class='_1-xj _1-xl']"));
+            menuItems.Add(By.XPath("//div[@id='u_0_4_2u']//child::div[@class=' _1-qr']"));
+            menuItems.Add(By.XPath("//div[@id='u_0_4_2u']//child::div[@class=' _1-qt']"));
+            menuItems.Add(By.XPath("//div[@id='u_0_4_2u']//child::div[@class=' _1-qu']"));
+            menuItems.Add(By.XPath("//div[@id='u_0_4_2u']//child::div[@class=' _1-r8']"));
+
+            foreach (By element in menuItems)
+            {
+                wait.Until(ExpectedConditions.ElementIsVisible(element));
+                Assert.IsTrue(driver.FindElement(element).Displayed);
+            }
+
+        }
+
+        [Test]
+        public void VerifyPrivacyTermsServices()
+        {
+            actions.Click(driver.FindElement(createNewAccount));
+            actions.Click(driver.FindElement(termsLink));
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            privacyItems.Add(By.XPath("//a[@href='https://www.facebook.com/settings/ads']"));
+            privacyItems.Add(By.XPath("//a[@href='https://www.facebook.com/privacy/center']"));
+            privacyItems.Add(By.XPath("//a[@href='https://www.facebook.com/policies/cookies/']"));
+            privacyItems.Add(By.XPath("//a[@href='https://www.facebook.com/privacy/policy']"));
+            privacyItems.Add(By.XPath("//a[@href='https://transparency.fb.com/']"));
+            privacyItems.Add(By.XPath("//div[contains(text(),'More Resources')]"));
+
+            foreach (By element in privacyItems)
+            {
+                Console.WriteLine(driver.FindElement(element).Text);
+            }
         }
 
         [TearDown]
